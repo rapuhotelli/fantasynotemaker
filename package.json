@@ -1,0 +1,21 @@
+{
+  "name": "fantasynotemaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "setup": "mkdir -p dist/assets && cp assets/*.jpg dist",
+    "dev": "parcel -p 1234 watch index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pixi.js": "^5.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.6"
+  }
+}
