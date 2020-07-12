@@ -1,3 +1,8 @@
+/**
+ * simple note maker by rapuhotelli
+ * MIT Licensed
+ */
+
 import * as PIXI from 'pixi.js'
 import WebFont from 'webfontloader'
 
@@ -24,17 +29,6 @@ WebFont.load({
         init();
     },
 })
-/*
-(function() {
-    const wf = document.createElement('script');
-    wf.src = `${document.location.protocol === 'https:' ? 'https' : 'http'
-    }://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js`;
-    wf.type = 'text/javascript';
-    wf.async = true;
-    const s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-}());
-*/
 
 const WIDTH = 510*2
 
@@ -94,7 +88,7 @@ const init = () => {
         fontSize: 28
     }
 
-    const resetPixiFont = (e?) => {
+    const resetPixiFont = () => {
         console.log('resetPixiFont')
 
         if (currentPixiText) {
@@ -130,7 +124,7 @@ const init = () => {
         app.renderer.extract.canvas(app.stage).toBlob((b) => {
             const a = document.createElement('a');
             document.body.append(a);
-            a.download = 'screenshot';
+            a.download = 'screenshot.png';
             a.href = URL.createObjectURL(b);
             a.click();
             a.remove();
@@ -197,7 +191,7 @@ const init = () => {
         app.renderer.resize(WIDTH, newHeight)
 
         const bgOffset = bg.height - newHeight
-        bg.y = -bgOffset + (showFooter ? 0 : 200) // 200 magic offset
+        bg.y = -bgOffset + (showFooter ? 0 : 200)
 
         updateRenderMask()
     }
