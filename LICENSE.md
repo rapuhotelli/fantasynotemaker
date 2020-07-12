@@ -1,4 +1,6 @@
-MIT License regarding src/index.ts
+MIT License regarding the application in the src directory. 
+
+Others:
 
 "Rellanic", "Davek" are © Pixel Sagas and Neale Davidson's estate, free for non-commercial use.
 
