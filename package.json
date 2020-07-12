@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "images": "mkdir -p dist && cp assets/*.jpg dist",
+    "images": "cp assets/*.jpg docs",
     "dev": "parcel -p 1234 watch index.html",
-    "build": "rm -rf dist && mkdir dist && npm run images && parcel build index.html --out-dir docs",
+    "build": "rm -rf docs && mkdir -p docs && npm run images && parcel build index.html --out-dir docs --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
