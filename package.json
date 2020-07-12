@@ -6,7 +6,7 @@
   "scripts": {
     "images": "mkdir -p dist && cp assets/*.jpg dist",
     "dev": "parcel -p 1234 watch index.html",
-    "build": "rm -rf dist && mkdir dist && npm run images && parcel build index.html",
+    "build": "rm -rf dist && mkdir dist && npm run images && parcel build index.html --out-dir docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
