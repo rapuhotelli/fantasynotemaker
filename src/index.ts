@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js'
+import WebFont from 'webfontloader'
 
 const filters = {
     alphaNumericWithPeriod: (text) => text.replace(/[^a-zA-Z.\n ]/mg, '')
@@ -15,16 +16,15 @@ declare global {
     }
 }
 
-window.WebFontConfig = {
+WebFont.load({
     google: {
         families: ['Zeyada', 'La Belle Aurore'],
     },
-
     active() {
         init();
     },
-};
-
+})
+/*
 (function() {
     const wf = document.createElement('script');
     wf.src = `${document.location.protocol === 'https:' ? 'https' : 'http'
@@ -34,6 +34,7 @@ window.WebFontConfig = {
     const s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
 }());
+*/
 
 const WIDTH = 510*2
 
@@ -56,7 +57,6 @@ const styles = [
     {
         label: 'Rellanic (elven script)',
         filter: filters.alphaNumericWithPeriod,
-        lineHeightOffset: 10,
         style: {
             fontFamily: 'Rellanic',
             fontSize: 36,
@@ -65,7 +65,6 @@ const styles = [
     {
         label: 'Davek (dwarven, primordial, etc...)',
         filter: filters.alphaNumericWithPeriod,
-        lineHeightOffset: 20,
         style: {
             fontFamily: 'Davek',
             fontSize: 36,
@@ -83,6 +82,7 @@ styles.forEach(styleObj => {
 })
 
 const init = () => {
+    console.log('init!')
     let currentText = null;
     let currentPixiText = null
     let currentPixiTextStyle = null;
@@ -119,13 +119,10 @@ const init = () => {
     let app = new PIXI.Application({
         backgroundColor: 0xFFFFFF,
         width: WIDTH,
-        height: 660*2,
+        height: 660 * 2,
     })
 
     document.getElementById('container').appendChild(app.view)
-
-
-
 
     const saveButton = document.createElement('button')
     saveButton.innerText = 'Save!'
@@ -142,13 +139,13 @@ const init = () => {
     document.getElementById('container').appendChild(saveButton)
 
     const footerCb = document.getElementById('footer-cb')
-    footerCb.addEventListener('change', ({ target }) => {
+    footerCb.addEventListener('change', ({target}) => {
         showFooter = (<HTMLInputElement>target).checked
         setPixiText(currentText)
     })
 
     const colorCb = document.getElementById('color-cb')
-    colorCb.addEventListener('change', ({ target }) => {
+    colorCb.addEventListener('change', ({target}) => {
         bg.tint = (<HTMLInputElement>target).checked ? 0xffe9d3 : 0xFFFFFF
     })
 
@@ -161,7 +158,7 @@ const init = () => {
 
     const bg = PIXI.Sprite.from('background-with-line.jpg')
     bg.height = 3263
-    bg.x =  -150 // -1400
+    bg.x = -150 // -1400
     bg.tint = 0xffe9d3
     container.addChild(bg)
 
@@ -196,9 +193,7 @@ const init = () => {
             ? styles[scriptSelector.selectedIndex].filter(text)
             : text
 
-        const lineHeightOffset =  styles[scriptSelector.selectedIndex].lineHeightOffset || 0
-        console.log(lineHeightOffset)
-        const newHeight = Math.min(currentPixiText.height + 50 + lineHeightOffset, 2000)
+        const newHeight = Math.min(currentPixiText.height + 80, 2000)
         app.renderer.resize(WIDTH, newHeight)
 
         const bgOffset = bg.height - newHeight

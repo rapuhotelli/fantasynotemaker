@@ -32,7 +32,6 @@
   }
 
   #container {
-
     max-width: 510px;
   }
 
@@ -48,6 +47,10 @@
     margin-bottom: 2rem;
     margin-top: 2rem;
     display: flex;
+    border: 1px solid black;
+  }
+  #settings > * {
+    padding: 0.5rem;
   }
 
   .setting-checkbox {
@@ -78,29 +81,55 @@
   #attribution p {
     margin: 6px 0;
   }
+  #script-type {
+    margin-top: 0.5rem;
+  }
+
+  #text-content {
+    border: 1px solid black;
+    padding: 1rem;
+    max-width: 510px;
+  }
+  .subtitle {
+    padding: 0;
+    margin: 0;
+  }
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+  hr {
+    margin-bottom: 3rem;
+  }
 
 </style>
 </head>
 <body>
+<span style="font-family: Rellanic, sans-serif"> </span>
+<span style="font-family: Davek, sans-serif"> </span>
   <div id="container">
-    <p>Super Simple</p>
+    <p class="subtitle">Super Simple</p>
     <h1>
       Note Maker
     </h1>
-    <p>For roleplaying games and whatever!</p>
+    <p class="subtitle">For roleplaying games and whatever!</p>
+    <hr/>
     <div id="input-area">
       <label for="text-content">Your text</label>
-      <textarea id="text-content" autocomplete="off">How do you know diarrhea is hereditary?
+      <textarea id="text-content" autocomplete="off">Here's a joke for you!
+How do you know if diarrhea is hereditary?
 
 It runs in your jeans, ha ha.
 
-Happy birthday, son.
-Darth Vader</textarea>
+Happy birthday, Frodo.
+
+
+Galadriel</textarea>
 
       <div id="settings">
         <div>
           <label for="script-type">
-            Script type
+            Script (font)
           </label>
           <select id="script-type"></select>
         </div>

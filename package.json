@@ -4,18 +4,20 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "setup": "mkdir -p dist/assets && cp assets/*.jpg dist",
+    "images": "mkdir -p dist && cp assets/*.jpg dist",
     "dev": "parcel -p 1234 watch index.html",
-    "build": "parcel build index.html",
+    "build": "rm -rf dist && mkdir dist && npm run images && parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pixi.js": "^5.3.0"
+    "pixi.js": "^5.3.0",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "typescript": "^3.9.6"
   }
 }
