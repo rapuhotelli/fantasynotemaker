@@ -23,7 +23,7 @@ declare global {
 
 WebFont.load({
     google: {
-        families: ['Zeyada', 'La Belle Aurore'],
+        families: ['Zeyada', 'La Belle Aurore', 'Cormorant Upright'],
     },
     active() {
         init();
@@ -48,6 +48,13 @@ const styles = [
             fontSize: 48
         }
     },
+    {
+        label: 'Cormorant Upright (official print)',
+        style: {
+            fontFamily: 'Cormorant Upright',
+            fontSize: 44
+        }
+    },    
     {
         label: 'Rellanic (elven script)',
         filter: filters.alphaNumericWithPeriod,
