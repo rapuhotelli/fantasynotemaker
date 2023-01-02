@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "parcel": "^1.12.4",
+    "parcel": "^2.8.2",
     "pixi.js": "^5.3.0",
     "webfontloader": "^1.6.28"
   },
